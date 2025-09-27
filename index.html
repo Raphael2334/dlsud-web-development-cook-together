@@ -68,50 +68,142 @@
 
             <!-- FEATURES -->
             <section class="mt-5">
-                  <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <div class="col">
-                              <div class="card h-100">
+                  <div class="container">
+                        <div class="card-group d-flex flex-column gap-3">
+
+                              <!-- Recipes -->
+                              <div class="card">
+                                    <div id="carouselDiscover" class="carousel slide" data-bs-ride="carousel"
+                                          aria-label="Discover recipes carousel">
+                                          <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                      <img src="assets/images/feature-discover-1.jpg"
+                                                            class="d-block w-100" alt="Discover 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                      <img src="assets/images/feature-discover-2.jpg"
+                                                            class="d-block w-100" alt="Discover 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                      <img src="assets/images/feature-discover-3.jpg"
+                                                            class="d-block w-100" alt="Discover 3">
+                                                </div>
+                                          </div>
+
+                                          <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselDiscover" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                          </button>
+                                          <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselDiscover" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                          </button>
+                                    </div>
+
                                     <div class="card-body">
                                           <h5 class="card-title">Discover Recipes</h5>
                                           <p class="card-text text-muted">Browse thousands of recipes submitted by the
                                                 community.</p>
                                           <a href="home-recipes.html" class="stretched-link">View recipes</a>
                                     </div>
+
                                     <div class="card-footer bg-transparent border-0">
                                           <small class="text-muted">Free • Popular</small>
                                     </div>
                               </div>
-                        </div>
 
-                        <div class="col">
-                              <div class="card h-100">
+                              <!-- Challenges -->
+                              <div class="card">
+                                    <div id="carouselChallenges" class="carousel slide" data-bs-ride="carousel"
+                                          aria-label="Challenges carousel">
+                                          <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                      <img src="assets/images/feature-challenge-1.jpg"
+                                                            class="d-block w-100" alt="Challenge 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                      <img src="assets/images/feature-challenge-2.jpg"
+                                                            class="d-block w-100" alt="Challenge 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                      <img src="assets/images/feature-challenge-3.jpg"
+                                                            class="d-block w-100" alt="Challenge 3">
+                                                </div>
+                                          </div>
+
+                                          <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselChallenges" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                          </button>
+                                          <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselChallenges" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                          </button>
+                                    </div>
+
                                     <div class="card-body">
                                           <h5 class="card-title">Join Challenges</h5>
                                           <p class="card-text text-muted">Participate in timed cooking challenges and
                                                 win rewards.</p>
                                           <a href="home-challenges.html" class="stretched-link">Join a challenge</a>
                                     </div>
+
                                     <div class="card-footer bg-transparent border-0">
                                           <small class="text-muted">Weekly events</small>
                                     </div>
                               </div>
-                        </div>
 
-                        <div class="col">
-                              <div class="card h-100">
+                              <!-- Kitchens -->
+                              <div class="card">
+                                    <div id="carouselKitchens" class="carousel slide" data-bs-ride="carousel"
+                                          aria-label="Kitchens carousel">
+                                          <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                      <img src="assets/images/feature-kitchen-1.jpg"
+                                                            class="d-block w-100" alt="Kitchen 1">
+                                                </div>
+                                                <div class="carousel-item">
+                                                      <img src="assets/images/feature-kitchen-2.jpg"
+                                                            class="d-block w-100" alt="Kitchen 2">
+                                                </div>
+                                                <div class="carousel-item">
+                                                      <img src="assets/images/feature-kitchen-3.jpg"
+                                                            class="d-block w-100" alt="Kitchen 3">
+                                                </div>
+                                          </div>
+
+                                          <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselKitchens" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                          </button>
+                                          <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselKitchens" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                          </button>
+                                    </div>
+
                                     <div class="card-body">
                                           <h5 class="card-title">Create Kitchens</h5>
                                           <p class="card-text text-muted">Form kitchens to share recipes and collaborate
                                                 with friends.</p>
                                           <a href="home-kitchens.html" class="stretched-link">Create a kitchen</a>
                                     </div>
+
                                     <div class="card-footer bg-transparent border-0">
                                           <small class="text-muted">Community groups</small>
                                     </div>
                               </div>
+
                         </div>
                   </div>
             </section>
+
       </main>
 
       <!-- FOOTER -->
