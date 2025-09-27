@@ -1,24 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
-          rel="stylesheet" 
-          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-          crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" 
-            integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" 
-            crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>Cook Together — Landing</title>
+
+      <!-- STYLES -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    
+
+<body class="bg-light">
+
+      <!-- NAVBAR-->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+            <div class="container">
+                  <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="assets/images/logo.png" alt="Cook Together" width="36" height="36"
+                              class="d-inline-block align-text-top">
+                        <span class="ms-2 fw-bold">Cook Together</span>
+                  </a>
+
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                        aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarMain">
+                        <form class="d-flex ms-3 me-auto" role="search" style="max-width:540px;">
+                              <input class="form-control me-2" type="search"
+                                    placeholder="Search recipes, users, comments..." aria-label="Search">
+                              <select class="form-select w-auto me-2" aria-label="Search type">
+                                    <option value="recipes" selected>Meals / Recipes</option>
+                                    <option value="users">Users</option>
+                                    <option value="comments">Reviews / Comments</option>
+                              </select>
+                              <button class="btn btn-outline-primary" type="submit">Search</button>
+                        </form>
+
+                        <ul class="navbar-nav ms-auto align-items-center">
+                              <li class="nav-item">
+                                    <a class="nav-link" href="home-recipes.html">Recipes</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="home-challenges.html">Challenges</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" href="home-kitchens.html">Kitchens</a>
+                              </li>
+                              <li class="nav-item ms-2">
+                                    <a class="btn btn-outline-secondary" href="login.html">Log in</a>
+                              </li>
+                              <li class="nav-item ms-2">
+                                    <a class="btn btn-primary" href="registration.html">Sign up</a>
+                              </li>
+                        </ul>
+                  </div>
+            </div>
+      </nav>
+
+      <!-- HERO -->
+      <main class="container py-5">
+            <div class="row align-items-center g-4">
+                  <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold">Share recipes. Cook together.</h1>
+                        <p class="lead text-muted">
+                              Join challenges, discover community recipes, and earn rewards as you level up your
+                              cooking.
+                              Start by exploring recipes or creating an account — it's free.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2">
+                              <a class="btn btn-lg btn-primary" href="home-recipes.html">Explore Recipes</a>
+                              <a class="btn btn-lg btn-outline-primary" href="home-challenges.html">Browse
+                                    Challenges</a>
+                              <a class="btn btn-lg btn-outline-secondary" href="registration.html">Create an Account</a>
+                        </div>
+
+                        <p class="mt-4 text-muted small">
+                              No credit card required • Community-moderated recipes • Local and global cuisines
+                        </p>
+                  </div>
+
+                  <div class="col-lg-6 d-none d-lg-block">
+                        <div class="card shadow-sm">
+                              <img src="assets/images/hero-recipes.jpg" class="card-img-top" alt="Featured recipes">
+                              <div class="card-body">
+                                    <h5 class="card-title">Featured community picks</h5>
+                                    <p class="card-text text-muted">Curated recipes trending this week.</p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+
+            <!-- FEATURES -->
+            <section class="mt-5">
+                  <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                              <div class="card h-100">
+                                    <div class="card-body">
+                                          <h5 class="card-title">Discover Recipes</h5>
+                                          <p class="card-text text-muted">Browse thousands of recipes submitted by the
+                                                community.</p>
+                                          <a href="home-recipes.html" class="stretched-link">View recipes</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                          <small class="text-muted">Free • Popular</small>
+                                    </div>
+                              </div>
+                        </div>
+
+                        <div class="col">
+                              <div class="card h-100">
+                                    <div class="card-body">
+                                          <h5 class="card-title">Join Challenges</h5>
+                                          <p class="card-text text-muted">Participate in timed cooking challenges and
+                                                win rewards.</p>
+                                          <a href="home-challenges.html" class="stretched-link">Join a challenge</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                          <small class="text-muted">Weekly events</small>
+                                    </div>
+                              </div>
+                        </div>
+
+                        <div class="col">
+                              <div class="card h-100">
+                                    <div class="card-body">
+                                          <h5 class="card-title">Create Kitchens</h5>
+                                          <p class="card-text text-muted">Form kitchens to share recipes and collaborate
+                                                with friends.</p>
+                                          <a href="home-kitchens.html" class="stretched-link">Create a kitchen</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                          <small class="text-muted">Community groups</small>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </section>
+
+            <!-- TRENDING RECIPES (sample) -->
+            <section class="mt-5">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="h5 mb-0">Trending Recipes</h3>
+                        <a href="home-recipes.html" class="small">See all</a>
+                  </div>
+
+                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                        <article class="col">
+                              <div class="card h-100">
+                                    <img src="assets/images/recipe-1.jpg" class="card-img-top" alt="Recipe 1">
+                                    <div class="card-body">
+                                          <h5 class="card-title">Grandma's Adobo</h5>
+                                          <p class="card-text text-muted small">Philippines • 30 min • 4 pax</p>
+                                          <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <div class="btn-group" role="group" aria-label="recipe actions">
+                                                      <button type="button" class="btn btn-sm btn-outline-primary"
+                                                            data-action="favorite">❤ Favorite</button>
+                                                      <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                            data-action="save">+ Save</button>
+                                                </div>
+                                                <small class="text-muted">1.2k cooked</small>
+                                          </div>
+                                    </div>
+                              </div>
+                        </article>
+
+                        <article class="col">
+                              <div class="card h-100">
+                                    <img src="assets/images/recipe-2.jpg" class="card-img-top" alt="Recipe 2">
+                                    <div class="card-body">
+                                          <h5 class="card-title">Vegan Bowl</h5>
+                                          <p class="card-text text-muted small">Global • 20 min • 2 pax</p>
+                                          <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <div class="btn-group" role="group" aria-label="recipe actions">
+                                                      <button type="button" class="btn btn-sm btn-outline-primary"
+                                                            data-action="favorite">❤ Favorite</button>
+                                                      <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                            data-action="save">+ Save</button>
+                                                </div>
+                                                <small class="text-muted">931 cooked</small>
+                                          </div>
+                                    </div>
+                              </div>
+                        </article>
+
+                        <article class="col">
+                              <div class="card h-100">
+                                    <img src="assets/images/recipe-3.jpg" class="card-img-top" alt="Recipe 3">
+                                    <div class="card-body">
+                                          <h5 class="card-title">Pasta Pomodoro</h5>
+                                          <p class="card-text text-muted small">Italy • 25 min • 3 pax</p>
+                                          <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <div class="btn-group" role="group" aria-label="recipe actions">
+                                                      <button type="button" class="btn btn-sm btn-outline-primary"
+                                                            data-action="favorite">❤ Favorite</button>
+                                                      <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                            data-action="save">+ Save</button>
+                                                </div>
+                                                <small class="text-muted">200 bought</small>
+                                          </div>
+                                    </div>
+                              </div>
+                        </article>
+                  </div>
+            </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="bg-white border-top mt-5">
+            <div class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
+                  <div class="mb-2 mb-md-0">
+                        <strong>Cook Together</strong> © 2025
+                  </div>
+                  <div class="d-flex gap-3">
+                        <a href="about.html" class="text-muted small">About</a>
+                        <a href="pricing.html" class="text-muted small">Pricing</a>
+                        <a href="contacts.html" class="text-muted small">Contacts</a>
+                  </div>
+            </div>
+      </footer>
+
+      <!-- SCRIPTS -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+            integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+            crossorigin="anonymous"></script>
+      <script src="js/script.js" defer></script>
 </body>
+
 </html>
