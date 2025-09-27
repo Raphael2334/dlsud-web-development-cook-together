@@ -1,0 +1,30 @@
+.ct-img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: 160px;
+  max-height: 40vh; 
+}
+
+@media (min-width: 576px) {
+  .ct-img { height: 200px; }
+}
+
+@media (min-width: 768px) {
+  .ct-img { height: 220px; }
+}
+
+@media (min-width: 992px) {
+  .ct-img { height: 260px; }
+}
+
+@media (min-width: 1400px) {
+  .ct-img { height: 320px; }
+}
+
+.ct-img--thumb { 
+  height: 140px;
+}
+@media (min-width: 992px) {
+  .ct-img--thumb { height: 180px; }
+}
