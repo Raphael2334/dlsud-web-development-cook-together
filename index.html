@@ -129,63 +129,124 @@
                   </div>
 
                   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                        <!-- Card 1 -->
                         <article class="col">
                               <div class="card h-100">
-                                    <img src="assets/images/recipe-1.jpg" class="card-img-top" alt="Recipe 1">
+                                    <img src="assets/images/recipe-1.jpg" class="card-img-top" alt="Grandma's Adobo">
                                     <div class="card-body">
                                           <h5 class="card-title">Grandma's Adobo</h5>
-                                          <p class="card-text text-muted small">Philippines • 30 min • 4 pax</p>
-                                          <div class="d-flex justify-content-between align-items-center mt-3">
+
+                                          <!-- Price + sold -->
+                                          <p class="card-text small text-muted mb-2">
+                                                <span class="badge bg-secondary">FREE</span>
+                                                <span class="ms-2">•</span>
+                                                <span class="ms-2">10k sold</span>
+                                          </p>
+
+                                          <!-- Rating row (stars match numeric rating) -->
+                                          <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                      <!-- 4 filled stars (floor(4.6) = 4) + 1 empty star -->
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-muted" aria-hidden="true">☆</span>
+                                                      <small class="ms-2 text-muted">4.6</small>
+                                                      <small class="ms-1 text-muted">(<span>931</span>)</small>
+                                                </div>
+
+                                                <!-- action buttons -->
                                                 <div class="btn-group" role="group" aria-label="recipe actions">
                                                       <button type="button" class="btn btn-sm btn-outline-primary"
                                                             data-action="favorite">❤ Favorite</button>
                                                       <button type="button" class="btn btn-sm btn-outline-secondary"
                                                             data-action="save">+ Save</button>
                                                 </div>
-                                                <small class="text-muted">1.2k cooked</small>
                                           </div>
                                     </div>
                               </div>
                         </article>
 
+                        <!-- Card 2 -->
                         <article class="col">
                               <div class="card h-100">
-                                    <img src="assets/images/recipe-2.jpg" class="card-img-top" alt="Recipe 2">
+                                    <img src="assets/images/recipe-2.jpg" class="card-img-top" alt="Vegan Bowl">
                                     <div class="card-body">
                                           <h5 class="card-title">Vegan Bowl</h5>
-                                          <p class="card-text text-muted small">Global • 20 min • 2 pax</p>
-                                          <div class="d-flex justify-content-between align-items-center mt-3">
+
+                                          <!-- Price + sold -->
+                                          <p class="card-text small text-muted mb-2">
+                                                <span class="badge bg-success">₱200</span>
+                                                <span class="ms-2">•</span>
+                                                <span class="ms-2">623 sold</span>
+                                          </p>
+
+                                          <!-- Rating row -->
+                                          <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                      <!-- 4 filled stars (floor(4.2) = 4) + 1 empty star -->
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-muted" aria-hidden="true">☆</span>
+                                                      <small class="ms-2 text-muted">4.2</small>
+                                                      <small class="ms-1 text-muted">(<span>129</span>)</small>
+                                                </div>
+
+                                                <!-- action buttons -->
                                                 <div class="btn-group" role="group" aria-label="recipe actions">
                                                       <button type="button" class="btn btn-sm btn-outline-primary"
                                                             data-action="favorite">❤ Favorite</button>
                                                       <button type="button" class="btn btn-sm btn-outline-secondary"
                                                             data-action="save">+ Save</button>
                                                 </div>
-                                                <small class="text-muted">931 cooked</small>
                                           </div>
                                     </div>
                               </div>
                         </article>
 
+                        <!-- Card 3 -->
                         <article class="col">
                               <div class="card h-100">
-                                    <img src="assets/images/recipe-3.jpg" class="card-img-top" alt="Recipe 3">
+                                    <img src="assets/images/recipe-3.jpg" class="card-img-top" alt="Pasta Pomodoro">
                                     <div class="card-body">
                                           <h5 class="card-title">Pasta Pomodoro</h5>
-                                          <p class="card-text text-muted small">Italy • 25 min • 3 pax</p>
-                                          <div class="d-flex justify-content-between align-items-center mt-3">
+
+                                          <!-- Price + sold -->
+                                          <p class="card-text small text-muted mb-2">
+                                                <span class="badge bg-warning text-dark">2.3k</span>
+                                                <span class="ms-2">•</span>
+                                                <span class="ms-2">3k sold</span>
+                                          </p>
+
+                                          <!-- Rating row -->
+                                          <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                      <!-- 5 filled stars (floor(4.9) = 4, but 4.9 rounds to 5 visually; here we show 5 filled to match strong rating) -->
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <span class="text-warning" aria-hidden="true">★</span>
+                                                      <small class="ms-2 text-muted">4.9</small>
+                                                      <small class="ms-1 text-muted">(<span>1.2k</span>)</small>
+                                                </div>
+
+                                                <!-- action buttons -->
                                                 <div class="btn-group" role="group" aria-label="recipe actions">
                                                       <button type="button" class="btn btn-sm btn-outline-primary"
                                                             data-action="favorite">❤ Favorite</button>
                                                       <button type="button" class="btn btn-sm btn-outline-secondary"
                                                             data-action="save">+ Save</button>
                                                 </div>
-                                                <small class="text-muted">200 bought</small>
                                           </div>
                                     </div>
                               </div>
                         </article>
                   </div>
+
             </section>
       </main>
 
