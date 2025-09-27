@@ -7,6 +7,7 @@
 
   ### Assigned: Sta. Ana
   - [ ] Add template **components skeleton** to all `.html` files
+    - [x] index.html
   - [ ] Create `css/component-override.css`
     - [ ] Include all used Bootstrap components and classes as selector placeholders for easier override later
     - [ ] Ensure proper cascading is implemented
