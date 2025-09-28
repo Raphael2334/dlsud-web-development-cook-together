@@ -61,3 +61,27 @@ function initPage(){
 }
 
 document.addEventListener('DOMContentLoaded',initPage);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const confirmBtn = document.getElementById('confirmLogoutBtn');
+  if (!confirmBtn) return;
+
+  confirmBtn.addEventListener('click', () => {
+    // Example logout routine (replace with your real sign-out logic)
+    try {
+      localStorage.clear();
+      sessionStorage.clear();
+      // optionally inform server / revoke tokens here
+    } catch (err) {
+      // ignore
+    }
+
+    // hide modal, then redirect
+    const modalEl = document.getElementById('logoutModal');
+    const bsModal = bootstrap.Modal.getInstance(modalEl);
+    if (bsModal) bsModal.hide();
+
+    // redirect to landing or login page
+    window.location.href = 'index.html';
+  });
+});
