@@ -16,6 +16,14 @@ _____
   <summary><strong>Contributor:</strong> Sta. Ana, Matthew</strong></summary>
 
   <details>
+    <summary>2025-09-28</summary>
+
+- [ ] Generate logo icon
+- [ ] Design template for home-recipes.html
+- [ ] Design template for home-challenges.html
+
+  </details>
+  <details>
     <summary>2025-09-27</summary>
 
 - [ ] Add template **components skeleton** to all `.html` files  
