@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Recipes</title>
 
-    <!-- STYLES -->
+    <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -28,18 +27,21 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navCollapse">
-                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                <ul class="navbar-nav ms-auto align-items-center gap-2 flex-wrap">
 
-                    <li class="nav-item"><a class="btn btn-outline-dark btn-sm" href="inventory.html"
-                            role="button">INVENTORY</a></li>
-                    <li class="nav-item"><a class="btn btn-outline-dark btn-sm" href="shop.html" role="button">SHOP</a>
+                    <!-- Inventory & Shop grouped -->
+                    <li class="nav-item d-flex gap-2">
+                        <a class="btn btn-outline-dark btn-sm" href="inventory.html" role="button">INVENTORY</a>
+                        <a class="btn btn-outline-dark btn-sm" href="shop.html" role="button">SHOP</a>
                     </li>
 
+                    <!-- Currency display -->
                     <li class="nav-item d-flex align-items-center ms-2">
-                        <span class="me-3 small text-muted">🪙 <strong id="goldCount">0</strong></span>
-                        <span class="me-3 small text-muted">💎 <strong id="gemCount">0</strong></span>
+                        <span class="me-3 small text-muted">🪙 <strong>12.5k</strong></span>
+                        <span class="me-3 small text-muted">💎 <strong>1.2k</strong></span>
                     </li>
 
+                    <!-- Notifications -->
                     <li class="nav-item dropdown">
                         <button class="btn btn-light btn-sm dropdown-toggle" id="dropdownNotif"
                             data-bs-toggle="dropdown" aria-expanded="false">🔔</button>
@@ -51,15 +53,13 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="btn btn-light btn-sm" href="people-friends.html" role="button">👥</a>
-                    </li>
-                    <li class="nav-item"><a class="btn btn-light btn-sm" href="login.html" role="button">👤</a></li>
-                    <li class="nav-item"><a class="btn btn-light btn-sm" href="settings.html" role="button">⚙️</a></li>
-                    <li class="nav-item">
+                    <!-- User Actions grouped -->
+                    <li class="nav-item d-flex gap-2 flex-wrap">
+                        <a class="btn btn-light btn-sm" href="people-friends.html" role="button">👥</a>
+                        <a class="btn btn-light btn-sm" href="login.html" role="button">👤</a>
+                        <a class="btn btn-light btn-sm" href="settings.html" role="button">⚙️</a>
                         <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#logoutModal">
-                            Logout
-                        </button>
+                            data-bs-target="#logoutModal">Logout</button>
                     </li>
                 </ul>
             </div>
@@ -85,11 +85,56 @@
 
             <!-- MAIN -->
             <section class="col-12 col-md-9">
-                <div id="recipesContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    <!-- Example Recipe Card -->
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="assets/images/placeholder.svg" class="card-img-top" alt="Recipe 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Spaghetti Bolognese</h5>
+                                <p class="card-text"><span class="fw-bold">25g</span> • <span class="text-muted">1.5k
+                                        sold</span></p>
+                                <p class="card-text small">⭐⭐⭐⭐☆ <span class="ms-2 text-muted">342</span></p>
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#getModal">Get</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="assets/images/placeholder.svg" class="card-img-top" alt="Recipe 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Vegan Salad</h5>
+                                <p class="card-text"><span class="fw-bold">FREE</span> • <span class="text-muted">980
+                                        sold</span></p>
+                                <p class="card-text small">⭐⭐⭐☆☆ <span class="ms-2 text-muted">210</span></p>
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#getModal">Get</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="assets/images/placeholder.svg" class="card-img-top" alt="Recipe 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Sushi Platter</h5>
+                                <p class="card-text"><span class="fw-bold">50g</span> • <span class="text-muted">2.3k
+                                        sold</span></p>
+                                <p class="card-text small">⭐⭐⭐⭐⭐ <span class="ms-2 text-muted">540</span></p>
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#getModal">Get</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
+                <!-- Load more button -->
                 <div class="d-grid gap-2 col-6 mx-auto my-4">
-                    <button id="loadMoreBtn" class="btn btn-outline-primary">Load more</button>
+                    <button class="btn btn-outline-primary">Load more</button>
                 </div>
             </section>
         </div>
@@ -97,14 +142,10 @@
         <!-- Floating collapsed action menu -->
         <div class="position-fixed" style="right:1.5rem; bottom:1.5rem; z-index:1050;">
             <div class="d-flex flex-column align-items-end">
-                <!-- Toggle -->
                 <button class="btn btn-dark rounded-circle mb-2" type="button" data-bs-toggle="collapse"
                     data-bs-target="#actionCollapse" aria-expanded="false" aria-controls="actionCollapse"
-                    aria-label="Open actions" style="width:56px;height:56px;font-size:1.25rem;">
-                    +
-                </button>
+                    style="width:56px;height:56px;font-size:1.25rem;">+</button>
 
-                <!-- Collapsed items -->
                 <div class="collapse" id="actionCollapse">
                     <div class="card shadow-sm">
                         <div class="card-body p-2 d-flex flex-column gap-2">
@@ -124,15 +165,13 @@
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="getModalLabel">Get Item</h5>
+                    <h5 class="modal-title">Get Item</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <p id="getModalBody">Preparing...</p>
-                </div>
+                <div class="modal-body">Do you want to get this recipe?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                    <button id="confirmGetBtn" type="button" class="btn btn-primary btn-sm">Confirm</button>
+                    <button type="button" class="btn btn-primary btn-sm">Confirm</button>
                 </div>
             </div>
         </div>
@@ -141,9 +180,7 @@
     <!-- FOOTER -->
     <footer class="bg-white border-top mt-5">
         <div class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <div class="mb-2 mb-md-0">
-                <strong>Cook Together</strong> © 2025
-            </div>
+            <div class="mb-2 mb-md-0"><strong>Cook Together</strong> © 2025</div>
             <div class="d-flex gap-3">
                 <a href="about.html" class="text-muted small">About</a>
                 <a href="pricing.html" class="text-muted small">Pricing</a>
@@ -157,15 +194,13 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                    <h5 class="modal-title">Confirm Logout</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    Are you sure you want to log out?
-                </div>
+                <div class="modal-body">Are you sure you want to log out?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button id="confirmLogoutBtn" type="button" class="btn btn-danger btn-sm">Logout</button>
+                    <button type="button" class="btn btn-danger btn-sm">Logout</button>
                 </div>
             </div>
         </div>
@@ -178,7 +213,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
         crossorigin="anonymous"></script>
-    <script src="js/script.js" defer></script>
 </body>
 
 </html>
