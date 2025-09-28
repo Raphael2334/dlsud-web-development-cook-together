@@ -19,7 +19,7 @@ _____
     <summary>2025-09-28</summary>
 
 - [ ] Generate logo icon
-- [-] Design template for home-recipes.html
+- [x] Design template for home-recipes.html
 - [ ] Design template for home-challenges.html
 
   </details>
