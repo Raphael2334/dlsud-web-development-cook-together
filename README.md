@@ -20,6 +20,8 @@ _____
 
 - [ ] Generate logo icon
 - [x] Design template for home-recipes.html
+- [x] Build Challenge modal
+- [ ] Create Recipe modal
 - [ ] Design template for home-challenges.html
 
   </details>

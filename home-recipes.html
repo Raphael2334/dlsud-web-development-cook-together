@@ -29,19 +29,16 @@
             <div class="collapse navbar-collapse" id="navCollapse">
                 <ul class="navbar-nav ms-auto align-items-center gap-2 flex-wrap">
 
-                    <!-- Inventory & Shop grouped -->
                     <li class="nav-item d-flex gap-2">
                         <a class="btn btn-outline-dark btn-sm" href="inventory.html" role="button">INVENTORY</a>
                         <a class="btn btn-outline-dark btn-sm" href="shop.html" role="button">SHOP</a>
                     </li>
 
-                    <!-- Currency display -->
                     <li class="nav-item d-flex align-items-center ms-2">
                         <span class="me-3 small text-muted">🪙 <strong>12.5k</strong></span>
                         <span class="me-3 small text-muted">💎 <strong>1.2k</strong></span>
                     </li>
 
-                    <!-- Notifications -->
                     <li class="nav-item dropdown">
                         <button class="btn btn-light btn-sm dropdown-toggle" id="dropdownNotif"
                             data-bs-toggle="dropdown" aria-expanded="false">🔔</button>
@@ -53,7 +50,6 @@
                         </ul>
                     </li>
 
-                    <!-- User Actions grouped -->
                     <li class="nav-item d-flex gap-2 flex-wrap">
                         <a class="btn btn-light btn-sm" href="people-friends.html" role="button">👥</a>
                         <a class="btn btn-light btn-sm" href="login.html" role="button">👤</a>
@@ -139,7 +135,7 @@
             </section>
         </div>
 
-        <!-- Floating collapsed action menu -->
+        <!-- Floating collapsed action menu (Bootstrap-only, static design) -->
         <div class="position-fixed" style="right:1.5rem; bottom:1.5rem; z-index:1050;">
             <div class="d-flex flex-column align-items-end">
                 <button class="btn btn-dark rounded-circle mb-2" type="button" data-bs-toggle="collapse"
@@ -149,12 +145,158 @@
                 <div class="collapse" id="actionCollapse">
                     <div class="card shadow-sm">
                         <div class="card-body p-2 d-flex flex-column gap-2">
-                            <a class="btn btn-danger btn-sm" href="home-challenges.html">🏆 Build Challenge</a>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#buildChallengeModal">🏆 Build Challenge</button>
+
                             <a class="btn btn-warning btn-sm" href="home-kitchens.html">👨‍🍳 New Kitchen</a>
                             <a class="btn btn-success btn-sm" href="home-create-recipe.html">📖 Create Recipe</a>
                             <a class="btn btn-info btn-sm text-white" href="people-friends.html">👥 Add Friends</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Build Challenge Modal -->
+        <div class="modal fade" id="buildChallengeModal" tabindex="-1" aria-labelledby="buildChallengeLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <form id="buildChallengeForm" class="p-0 m-0" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="buildChallengeLabel">Build Challenge</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="challengeTitle" class="form-label">Title</label>
+                                <input id="challengeTitle" name="title" class="form-control" type="text"
+                                    placeholder="Enter challenge title" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="challengeDescription" class="form-label">Description</label>
+                                <textarea id="challengeDescription" name="description" rows="3" class="form-control"
+                                    placeholder="Describe the challenge" required></textarea>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label d-block">Status</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Not started"
+                                            id="statusNotStarted" name="status">
+                                        <label class="form-check-label" for="statusNotStarted">Not started</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="In progress"
+                                            id="statusInProgress" name="status">
+                                        <label class="form-check-label" for="statusInProgress">In progress</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Ended" id="statusEnded"
+                                            name="status">
+                                        <label class="form-check-label" for="statusEnded">Ended</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label d-block">Scope</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Solo" id="scopeSolo"
+                                            name="scope">
+                                        <label class="form-check-label" for="scopeSolo">Solo</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Party" id="scopeParty"
+                                            name="scope">
+                                        <label class="form-check-label" for="scopeParty">Party</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label d-block">Difficulty</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Easy" id="diffEasy"
+                                            name="difficulty">
+                                        <label class="form-check-label" for="diffEasy">Easy</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Medium" id="diffMed"
+                                            name="difficulty">
+                                        <label class="form-check-label" for="diffMed">Medium</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Hard" id="diffHard"
+                                            name="difficulty">
+                                        <label class="form-check-label" for="diffHard">Hard</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="startDate" class="form-label">Start Date</label>
+                                    <input type="date" id="startDate" name="startDate" class="form-control">
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="endDate" class="form-label">End Date</label>
+                                    <input type="date" id="endDate" name="endDate" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-4">
+                                    <label for="durationDays" class="form-label">Duration (days)</label>
+                                    <input type="number" id="durationDays" name="duration" class="form-control" disabled
+                                        placeholder="Calculated from dates">
+                                </div>
+
+                                <div class="col-12 col-md-4">
+                                    <label for="cookCount" class="form-label">Cook Count</label>
+                                    <input type="number" id="cookCount" name="cookCount" class="form-control" min="1"
+                                        value="1">
+                                </div>
+
+                                <div class="col-12 col-md-4">
+                                    <label for="recipeRef" class="form-label">Recipe</label>
+                                    <input type="text" id="recipeRef" name="recipe" class="form-control"
+                                        placeholder="Recipe name or ID">
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-1">
+                                <div class="col-12 col-md-4">
+                                    <label for="expReward" class="form-label">EXP Reward</label>
+                                    <input type="number" id="expReward" name="expReward" class="form-control" disabled
+                                        placeholder="Calculated">
+                                </div>
+
+                                <div class="col-12 col-md-4">
+                                    <label for="goldReward" class="form-label">Gold Reward</label>
+                                    <input type="number" id="goldReward" name="goldReward" class="form-control" disabled
+                                        placeholder="Calculated">
+                                </div>
+
+                                <div class="col-12 col-md-4">
+                                    <label for="gemReward" class="form-label">Gem Reward</label>
+                                    <input type="number" id="gemReward" name="gemReward" class="form-control" disabled
+                                        placeholder="Calculated">
+                                </div>
+                            </div>
+
+                            <div class="text-muted small mt-2">Duration and rewards will display here once the page has
+                                JS to compute them.</div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Create Challenge</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
