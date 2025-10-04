@@ -1,25 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Navbar from "./components/Navbar";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundColor: "#eee", minHeight: "100vh" }}>
+      <Navbar />
+      <div className="container mt-5">
+        <h1>Hello, Cook Together!</h1>
+        <p>This is your React app running with Bootstrap.</p>
+      </div>
     </div>
   );
 }
