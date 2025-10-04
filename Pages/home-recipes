@@ -1,0 +1,13 @@
+import React from 'react';
+
+const HomeRecipes = () => {
+    return (
+        <div>
+            <h1>Home Recipes</h1>
+            <p>Welcome to the Cook Together home recipes page!</p>
+            {/* Add your recipe components or content here */}
+        </div>
+    );
+};
+
+export default HomeRecipes;
