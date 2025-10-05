@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar as NavbarComponent } from './components/Navbar';
-import { Hero as HeroComponent } from './components/Hero';
-import { Footer as FooterComponent } from './components/Footer';
-import Landing from './pages/Landing';
-import Registration from './pages/Registration';
-import Login from './pages/Login';
-import Recipes from '.pages/Recipes';
+import NavbarComponent from './components/Navbar';
+import HeroComponent from './components/Hero';
+import FooterComponent from './components/Footer';
+import LandingPage from './pages/Landing';
+import RegistrationPage from './pages/Registration';
+import LoginPage from './pages/Login';
+import RecipesPage from '.pages/Recipes';
 
 function App() {
   return (
@@ -14,10 +14,10 @@ function App() {
       <NavbarComponent />
       <HeroComponent />
       <Routes>
-        <Route path='/landing' element={Landing} />
-        <Route path='/registration' element={Registration} />
-        <Route path='/login' element={Login} />
-        <Route path='/home-recipes' element={Recipes} />
+        <Route path='/landing' element={LandingPage} />
+        <Route path='/registration' element={RegistrationPage} />
+        <Route path='/login' element={LoginPage} />
+        <Route path='/home-recipes' element={RecipesPage} />
       </Routes>
       <FooterComponent />
     </Router>
