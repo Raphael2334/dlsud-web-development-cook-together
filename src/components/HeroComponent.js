@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 
-function Hero() {
+function HeroComponent() {
     return (
         <Container>
             <h1>Hero Section</h1>
@@ -9,4 +9,4 @@ function Hero() {
     );
 }
 
-export default Hero;
+export default HeroComponent;

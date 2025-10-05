@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-function Body() {
+function BodyComponent() {
     return(
         <Container>
             <h2>Body section</h2>
@@ -11,4 +11,4 @@ function Body() {
     );
 }
 
-export default Body;
+export default BodyComponent;

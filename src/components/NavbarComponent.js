@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function NavbarComponent() {
     return (
         <Navbar expand="lg">
             <Container>
@@ -12,4 +12,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default NavbarComponent;
