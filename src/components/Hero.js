@@ -6,7 +6,7 @@ function Hero() {
         <Container>
             <h1>Hero Section</h1>
         </Container>
-    )
+    );
 }
 
 export default Hero;
