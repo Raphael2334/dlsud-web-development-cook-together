@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavbarComponent from './components/Navbar';
-import HeroComponent from './components/Hero';
-import FooterComponent from './components/Footer';
-import LandingPage from './pages/Landing';
-import RegistrationPage from './pages/Registration';
-import LoginPage from './pages/Login';
-import RecipesPage from '.pages/Recipes';
+import NavbarComponent from './components/NavbarComponent';
+import HeroComponent from './components/HeroComponent';
+import FooterComponent from './components/FooterComponent';
+import LandingPage from './pages/LandingPage';
+import RegistrationPage from './pages/RegistrationPage';
+import LoginPage from './pages/LoginPage';
+import RecipesPage from '.pages/RecipesPage';
 
 function App() {
   return (
