@@ -8,3 +8,5 @@ function Aside() {
       </Container>  
     );
 } 
+
+export default Aside;
