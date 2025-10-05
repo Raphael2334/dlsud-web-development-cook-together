@@ -1,7 +1,14 @@
 import React from 'react';
+import HeroComponent from '../components/HeroComponent';
+import FeaturesComponent from '../components/FeaturesComponent';
 
 const LandingPage = () => {
-    <h2>Landing Page</h2>
+  return (
+    <>
+      <HeroComponent />
+      <FeaturesComponent />
+    </>
+  );
 };
 
 export default LandingPage;
