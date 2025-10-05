@@ -2,10 +2,11 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/colors.css";
+import "../styles/layout.css";
 
 function FooterComponent() {
   return (
-    <footer className="footer-ct">
+    <footer className="footer-ct sticky-footer">
       <Container>
         <Row className="align-items-start gy-3">
           <Col md={4}>
