@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container, Button, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 import "../styles/colors.css";
 
 function NavbarComponent({
@@ -14,7 +15,7 @@ function NavbarComponent({
       <Container fluid>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center navbar-brand-ink">
           <img
-            src="/assets/images/logo.png"
+            src={logo}
             alt="Cook Together"
             width="36"
             height="36"
