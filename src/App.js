@@ -14,10 +14,10 @@ function App() {
       <NavbarComponent />
       <HeroComponent />
       <Routes>
-        <Route path='/landing' element={LandingPage} />
-        <Route path='/registration' element={RegistrationPage} />
-        <Route path='/login' element={LoginPage} />
-        <Route path='/home-recipes' element={RecipesPage} />
+        <Route path='/landing' element={<LandingPage/>} />
+        <Route path='/registration' element={<RegistrationPage/>} />
+        <Route path='/login' element={<LoginPage/>} />
+        <Route path='/home-recipes' element={<RecipesPage/>} />
       </Routes>
       <FooterComponent />
     </Router>
