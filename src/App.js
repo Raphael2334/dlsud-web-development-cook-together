@@ -6,7 +6,7 @@ import FooterComponent from './components/FooterComponent';
 import LandingPage from './pages/LandingPage';
 import RegistrationPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
-import RecipesPage from '.pages/RecipesPage';
+import RecipesPage from './pages/RecipesPage';
 
 function App() {
   return (
