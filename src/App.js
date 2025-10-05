@@ -16,7 +16,7 @@ function App() {
         <Route path='/' element={<LandingPage />} />
         <Route path='/registration' element={<RegistrationPage />} />
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/home-recipes' element={<RecipesPage />} />
+        <Route path='/recipes' element={<RecipesPage />} />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
       <FooterComponent />
