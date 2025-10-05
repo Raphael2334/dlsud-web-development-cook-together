@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function NavbarComponent() {
+function Navbar() {
     return (
         <Navbar expand="lg">
             <Container>
