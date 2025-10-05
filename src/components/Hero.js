@@ -8,3 +8,5 @@ function Hero() {
         </Container>
     )
 }
+
+export default Hero;
