@@ -12,7 +12,7 @@ const defaultItems = [
 
 function AsideComponent({ items = defaultItems, activeKey = "/home-recipes", className = "" }) {
   return (
-    <aside className={`aside-card ${className}`}>
+    <aside className={`app-sidebar aside-card ${className}`}>
       <Nav className="flex-column" as="nav" aria-label="aside navigation">
         {items.map((it) => {
           const isActive = it.to === activeKey;
