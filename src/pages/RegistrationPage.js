@@ -5,7 +5,7 @@ import '../styles/colors.css';
 
 export default function RegistrationPage() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: '', email: '', password: '', confirm: '' });
+  const [form, setForm] = useState({ name: '', email: '', password: '', confirm: '', age: 18, gender: 'non-binary', loginStreak: 0, level: 0, currentEXP: 0, currentLevelCap: 0,  goldCount: 0, gemCount: 0});
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
