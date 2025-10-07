@@ -6,13 +6,14 @@ const ChallengeItems = [
   { id: 1, title: 'Challenge Name', author: 'Mary', reward: '120', difficulty: 'Easy',   end: '06/12/25', tags: "tags", img: '/assets/images/placeholder.svg' },
   { id: 2, title: 'Challenge Name', author: 'Jane', reward: '120', difficulty: 'Medium', end: '09/21/25', tags: "tags", img: '/assets/images/placeholder.svg' },
   { id: 3, title: 'Challenge Name', author: 'John', reward: '120', difficulty: 'Hard',   end: '01/01/26', tags: "tags", img: '/assets/images/placeholder.svg' },
+  { id: 4, title: 'Challenge Name', author: 'Mary', reward: '120', difficulty: 'Easy',   end: '06/12/25', tags: "tags", img: '/assets/images/placeholder.svg' },
+  { id: 5, title: 'Challenge Name', author: 'Jane', reward: '120', difficulty: 'Medium', end: '09/21/25', tags: "tags", img: '/assets/images/placeholder.svg' },
+  { id: 6, title: 'Challenge Name', author: 'John', reward: '120', difficulty: 'Hard',   end: '01/01/26', tags: "tags", img: '/assets/images/placeholder.svg' },
+  { id: 7, title: 'Challenge Name', author: 'Mary', reward: '120', difficulty: 'Easy',   end: '06/12/25', tags: "tags", img: '/assets/images/placeholder.svg' },
+  { id: 8, title: 'Challenge Name', author: 'Jane'  , reward: '120', difficulty: 'Medium', end: '09/21/25', tags: "tags", img: '/assets/images/placeholder.svg' },
+  { id: 9, title: 'Challenge Name', author: 'John', reward: '120', difficulty: 'Hard',   end: '01/01/26', tags: "tags", img: '/assets/images/placeholder.svg' },
 ];
 
-function Stars({ value = 0 }) {
-  const full = '★'.repeat(Math.max(0, Math.floor(value)));
-  const empty = '☆'.repeat(Math.max(0, 5 - Math.floor(value)));
-  return <span className="text-warning">{full}{empty}</span>;
-}
 
 function ChallengeBody() {
   return (
@@ -46,10 +47,9 @@ function ChallengeBody() {
                   <Button className="btn-ct-primary btn-sm">Join   </Button> Ends at:    <span className="text-ct-muted">{r.end}</span>
                   
                   <div className="border rounded p-3 my-3 bg-light d-flex flex-row align-items-center" style={{ marginLeft: "4px", marginRight: "4px", gap: "6px"  }}>
-                  <Button className="btn btn-primary">tags</Button>
-                  <Button className="btn btn-secondary">tags</Button>
-                  <Button className="btn btn-success">tags</Button>
-                  <Button className="btn btn-danger">tags</Button>
+                  <Button className="btn btn-primary">{r.tags}</Button>
+                  <Button className="btn btn-secondary">{r.tags}</Button>
+                  <Button className="btn btn-success">{r.tags}</Button>
                   </div>
 
 

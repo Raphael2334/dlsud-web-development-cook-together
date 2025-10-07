@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import NavbarComponent from './components/NavbarComponent';
 import FooterComponent from './components/FooterComponent';
-import AsideComponent from './components/AsideComponent';
+import AsideComponent from './components/SearchBar';
 
 import LandingPage from './pages/LandingPage';
 import RegistrationPage from './pages/RegistrationPage';
@@ -18,6 +18,7 @@ function App() {
   return (
     <Router>
       <NavbarComponent /> 
+      <searchBar />
       <Routes>
 
         {/* homepage routes */}
