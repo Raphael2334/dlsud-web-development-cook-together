@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/colors.css';
+import api from '../constants/api.js';
 
 export default function RegistrationPage() {
+  const usersSheet = api.users;
+
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: '', email: '', password: '', confirm: '', age: 18, gender: 'non-binary', loginStreak: 0, level: 0, currentEXP: 0, currentLevelCap: 0,  goldCount: 0, gemCount: 0});
 
@@ -12,6 +15,16 @@ export default function RegistrationPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO: add registration API call/validation
+    var form = e.target.Form;
+    fetch(form.action, {
+      method : "POST",
+      body: new FormData(usersSheet),
+    }).then(
+      response => response.json()
+    ).then(() => {
+      alert("Registration successful!")
+    });
+
     navigate('/login');
   };
 
@@ -24,7 +37,7 @@ export default function RegistrationPage() {
             Join Cook Together — share recipes, form parties, create challenges and earn rewards.
           </p>
 
-          <Form onSubmit={handleSubmit}>
+          <Form action={usersSheet} onSubmit={handleSubmit}>
             <Form.Group controlId="regName" className="mb-3">
               <Form.Label className="text-ct-muted">Full name</Form.Label>
               <Form.Control
