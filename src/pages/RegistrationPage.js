@@ -2,30 +2,68 @@ import React, { useState } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/colors.css';
-import api from '../constants/api.js';
+import apiLinks from '../constants/api.js';
 
 export default function RegistrationPage() {
-  const usersSheet = api.users;
+  const usersSheet = apiLinks.users;
 
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: '', email: '', password: '', confirm: '', age: 18, gender: 'non-binary', loginStreak: 0, level: 0, currentEXP: 0, currentLevelCap: 0,  goldCount: 0, gemCount: 0});
+  const [form, setForm] = useState({ fullName: '', email: '', password: '', confirm: '', age: 18, gender: 'non-binary', loginStreak: 0, level: 0, currentEXP: 0, currentLevelCeiling: 0, goldCount: 0, gemCount: 0 });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: add registration API call/validation
-    var form = e.target.Form;
-    fetch(form.action, {
-      method : "POST",
-      body: new FormData(usersSheet),
-    }).then(
-      response => response.json()
-    ).then(() => {
-      alert("Registration successful!")
-    });
 
-    navigate('/login');
+    // basic validation (use the sheet field names)
+    if (!form.fullName.trim() || !form.email.trim() || !form.password) {
+      alert("Please fill full name, email and password.");
+      return;
+    }
+    if (form.password !== form.confirm) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    try {
+      // build payload using exact spreadsheet header names
+      const row = {
+        fullName: String(form.fullName).trim(),
+        email: String(form.email).trim(),
+        password: String(form.password),
+        age: String(Number(form.age) || 0),
+        gender: String(form.gender),
+        loginStreak: String(Number(form.loginStreak) || 0),
+        level: String(Number(form.level) || 0),
+        currentEXP: String(Number(form.currentEXP) || 0),
+        currentLevelCeiling: String(Number(form.currentLevelCeiling) || 0),
+        goldCount: String(Number(form.goldCount) || 0),
+        gemCount: String(Number(form.gemCount) || 0),
+      };
+
+      const payload = { data: [row] };
+
+      // debug: optionally console.log(JSON.stringify(payload));
+      const res = await fetch(usersSheet, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        throw new Error(`HTTP ${res.status} ${text}`);
+      }
+
+      await res.json();
+      alert("Registration successful!");
+      navigate("/login");
+    } catch (err) {
+      alert("Registration failed: " + err.message);
+    }
   };
 
   return (
@@ -37,12 +75,13 @@ export default function RegistrationPage() {
             Join Cook Together — share recipes, form parties, create challenges and earn rewards.
           </p>
 
-          <Form action={usersSheet} onSubmit={handleSubmit}>
+          {/* removed action attribute to prevent any native form submission interference */}
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="regName" className="mb-3">
               <Form.Label className="text-ct-muted">Full name</Form.Label>
               <Form.Control
-                name="name"
-                value={form.name}
+                name="fullName"
+                value={form.fullName}
                 onChange={handleChange}
                 placeholder="Jane Doe"
               />
