@@ -3,6 +3,7 @@ import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/colors.css';
 import apiLinks from '../constants/api.js';
+import { generateUniqueId } from '../hooks/uuidHelper.js';
 
 export default function RegistrationPage() {
   const usersSheet = apiLinks.users;
@@ -14,6 +15,8 @@ export default function RegistrationPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // generate unique id for this sheet (throws on repeated failure)
+    const id = await generateUniqueId(usersSheet, { idField: 'id', retries: 5, check: true });
 
     // basic validation (use the sheet field names)
     if (!form.fullName.trim() || !form.email.trim() || !form.password) {
@@ -28,6 +31,8 @@ export default function RegistrationPage() {
     try {
       // build payload using exact spreadsheet header names
       const row = {
+        // get a unique id (checks the Users sheet). awaiting at top-level of handleSubmit.
+        id,
         fullName: String(form.fullName).trim(),
         email: String(form.email).trim(),
         password: String(form.password),
