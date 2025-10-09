@@ -2,17 +2,51 @@ import React, { useState } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/colors.css';
+import apiLinks from '../constants/api.js';
+import { useAuth } from '../hooks/useAuth.js';
+
+/**
+ * Query SheetDB for a user matching email+password and return the id field (or null).
+ * - sheetUrl: apiLinks.users (contains ?sheet=Users)
+ * - returns string id or null
+ */
+export async function getUserIdByCredentials(email, password, sheetUrl = apiLinks.users) {
+  if (!email || !password) return null;
+  const url = `${sheetUrl}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+  try {
+    const res = await fetch(url, { headers: { Accept: 'application/json' } });
+    if (!res.ok) return null;
+    const json = await res.json().catch(() => []);
+    if (!Array.isArray(json) || json.length === 0) return null;
+    // return the id field from the first matching row
+    return json[0].id ?? null;
+  } catch {
+    return null;
+  }
+}
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
+  const { login } = useAuth();
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: perform authentication here
-    navigate('/recipes'); // navigate to /recipes after successful login
+    if (!form.email.trim() || !form.password) {
+      alert('Please provide email and password.');
+      return;
+    }
+    const id = await getUserIdByCredentials(form.email.trim(), form.password);
+    if (!id) {
+      alert('Invalid email or password.');
+      return;
+    }
+    // optionally fetch user profile row to get fullName/email and store that
+    const userObj = { id, email: form.email.trim() };
+    login(userObj);
+    navigate('/recipes');
   };
 
   return (
