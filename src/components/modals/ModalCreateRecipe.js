@@ -18,13 +18,17 @@ export default function ModalCreateRecipe({ show, onHide, onCreated }) {
   const [values, setValues] = useState({
     description: '',
     origin: '',
-    preparationTime: '',
-    servingSize: '',
+    preparationTimeValue: '',
+    preparationTimeUnit: 'minutes',
+    servingSizeValue: '',
+    servingSizeUnit: 'servings',
     tags: '',
-    isPublic: true,
     expReward: 0,
     goldReward: 0,
     gemReward: 0,
+    isPaid: false,
+    price: '',
+    isPublic: true,
   });
   const [loading, setLoading] = useState(false);
 
@@ -81,18 +85,23 @@ export default function ModalCreateRecipe({ show, onHide, onCreated }) {
       }
 
       // 3) build row matching sheet header names
+      const preparationTime = `${values.preparationTimeValue} ${values.preparationTimeUnit}`;
+      const servingSize = `${values.servingSizeValue} ${values.servingSizeUnit}`;
+
       const row = {
         id,
         coverImage: coverImageUrl,
         description: String(values.description || ''),
         origin: String(values.origin || ''),
-        preparationTime: String(values.preparationTime || ''),
-        servingSize: String(values.servingSize || ''),
+        preparationTime,
+        servingSize,
         tags: String(values.tags || ''),
-        isPublic: values.isPublic ? 'true' : 'false',
         expReward: String(Number(values.expReward) || 0),
         goldReward: String(Number(values.goldReward) || 0),
         gemReward: String(Number(values.gemReward) || 0),
+        isPaid: values.isPaid ? 'true' : 'false',
+        price: values.isPaid ? String(Number(values.price) || 0) : '',
+        isPublic: values.isPublic ? 'true' : 'false',
         // optionally store who created it (if your sheet has this column)
         createdBy: user?.id ?? ''
       };
@@ -123,12 +132,12 @@ export default function ModalCreateRecipe({ show, onHide, onCreated }) {
     <Modal show={show} onHide={onHide} centered className="modal-ct">
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton style={{ borderBottom: '1px solid var(--ct-border)' }}>
-          <Modal.Title className="text-ct-ink">Create recipe</Modal.Title>
+          <Modal.Title className="text-ct-ink">Create Recipe</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <Form.Group className="mb-2">
-            <Form.Label className="text-ct-muted">Cover image</Form.Label>
+            <Form.Label className="text-ct-muted">Cover Image</Form.Label>
             <Form.Control type="file" accept="image/*" onChange={handleFile} />
           </Form.Group>
 
@@ -144,12 +153,47 @@ export default function ModalCreateRecipe({ show, onHide, onCreated }) {
 
           <div className="d-flex gap-2">
             <Form.Group className="mb-2 flex-fill">
-              <Form.Label className="text-ct-muted">Preparation time</Form.Label>
-              <Form.Control name="preparationTime" value={values.preparationTime} onChange={handleChange} />
+              <Form.Label className="text-ct-muted">Preparation Time</Form.Label>
+              <div className="d-flex gap-2">
+                <Form.Control
+                  type="number"
+                  name="preparationTimeValue"
+                  value={values.preparationTimeValue}
+                  onChange={handleChange}
+                />
+                <Form.Select
+                  name="preparationTimeUnit"
+                  value={values.preparationTimeUnit}
+                  onChange={handleChange}
+                >
+                  <option value="minutes">Minutes</option>
+                  <option value="hours">Hours</option>
+                </Form.Select>
+              </div>
             </Form.Group>
-            <Form.Group className="mb-2" style={{ width: 140 }}>
-              <Form.Label className="text-ct-muted">Serving size</Form.Label>
-              <Form.Control name="servingSize" value={values.servingSize} onChange={handleChange} />
+          </div>
+
+          <div className="d-flex gap-2">
+            <Form.Group className="mb-2 flex-fill">
+              <Form.Label className="text-ct-muted">Serving Size</Form.Label>
+              <div className="d-flex gap-2">
+                <Form.Control
+                  type="number"
+                  name="servingSizeValue"
+                  value={values.servingSizeValue}
+                  onChange={handleChange}
+                />
+                <Form.Select
+                  name="servingSizeUnit"
+                  value={values.servingSizeUnit}
+                  onChange={handleChange}
+                >
+                  <option value="servings">Servings</option>
+                  <option value="lb">Pounds (lb)</option>
+                  <option value="kg">Kilograms (kg)</option>
+                  <option value="ounces">Ounces</option>
+                </Form.Select>
+              </div>
             </Form.Group>
           </div>
 
@@ -159,7 +203,64 @@ export default function ModalCreateRecipe({ show, onHide, onCreated }) {
           </Form.Group>
 
           <Form.Group className="mb-2">
-            <Form.Check type="checkbox" label="Public" name="isPublic" checked={values.isPublic} onChange={handleChange} />
+            <Form.Label className="text-ct-muted">Experience Reward</Form.Label>
+            <Form.Control
+              type="number"
+              name="expReward"
+              value={values.expReward}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-2">
+            <Form.Label className="text-ct-muted">Gold Reward</Form.Label>
+            <Form.Control
+              type="number"
+              name="goldReward"
+              value={values.goldReward}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-2">
+            <Form.Label className="text-ct-muted">Gem Reward</Form.Label>
+            <Form.Control
+              type="number"
+              name="gemReward"
+              value={values.gemReward}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-2">
+            <Form.Check
+              type="checkbox"
+              label="Paid Recipe"
+              name="isPaid"
+              checked={values.isPaid}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-2">
+            <Form.Label className="text-ct-muted">Price</Form.Label>
+            <Form.Control
+              type="number"
+              name="price"
+              value={values.price}
+              onChange={handleChange}
+              disabled={!values.isPaid}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-2">
+            <Form.Check
+              type="checkbox"
+              label="Public"
+              name="isPublic"
+              checked={values.isPublic}
+              onChange={handleChange}
+            />
           </Form.Group>
         </Modal.Body>
 
@@ -167,7 +268,7 @@ export default function ModalCreateRecipe({ show, onHide, onCreated }) {
           <Button variant="secondary" onClick={onHide} disabled={loading}>
             Cancel
           </Button>
-          <Button type="submit" className="btn-ct-primary" disabled={loading} style={{ borderColor: 'var(--ct-primary)' }}>
+          <Button type="submit" className="btn-ct-primary" disabled={loading}>
             {loading ? 'Saving…' : 'Create'}
           </Button>
         </Modal.Footer>
